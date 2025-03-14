@@ -259,15 +259,178 @@ header {
 }
 
 
+/* Skills Scroll Container */
+.skills-scroll {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 1px; /* Reduced gap between elements */
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 1) 10%,
+        rgba(0, 0, 0, 1) 90%,
+        rgba(0, 0, 0, 0)
+    );
+    padding: 5px 0; /* Reduced padding */
+}
+
+/* Skills Grid */
+.skills-grid {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1px; /* Reduced space between skill cards */
+    min-width: 100%;
+    animation: scroll-left 30s linear infinite;
+}
+
+/* Backend moves in opposite direction */
+.backend .skills-grid {
+    animation: scroll-right 35s linear infinite;
+}
+
+/* Pause animation on hover */
+.skills-scroll:hover .skills-grid,
+.backend .skills-scroll:hover .skills-grid {
+    animation-play-state: paused;
+}
+
+/* Infinite Scroll Animations */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-right {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Hero Section with GIF Background */
+header {
+    height: 75vh;
+    background: url('images/dwight.gif') no-repeat center center/cover;
+    display: flex;
+    align-items: flex-end; /* Move content to bottom */
+    justify-content: flex-start; /* Move content to left */
+    text-align: left;
+    position: relative;
+    padding: 20px; /* Adjust padding for positioning */
+}
+
+/* Fallback background (if GIF fails to load) */
+@supports not (background-image: url('images/dwight.gif')) {
+    header {
+        background: url('fallback-image.jpg') no-repeat center center/cover;
+    }
+}
+
+/* Positioning text + buttons to bottom-left */
+.content {
+    max-width: 750px;
+    padding: 20px;
+}
+
+.content h1 {
+    font-size: 33px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.content p {
+    text-align: left;
+    font-size: 14px; /* Increased font size */
+    margin-bottom: 25px; /* Increased spacing between sentences */
+    line-height: 1.3; /* Adds more spacing between lines */
+}
+
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
-    .card-container {
-        grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+    /* Adjust header height for tablets and smaller devices */
+    header {
+        height: 50vh; /* Reduce height for smaller screens */
+        background-size: contain; /* Ensure the GIF fits within the header */
+    }
+
+    .content h1 {
+        font-size: 28px; /* Reduce font size for smaller screens */
+    }
+
+    .content p {
+        font-size: 12px; /* Reduce font size for smaller screens */
+    }
+
+    .skill-card img {
+        width: 30px; /* Smaller logo size for mobile */
+        height: 30px; /* Smaller logo size for mobile */
+        margin-bottom: 10px; /* Adjust spacing */
+    }
+
+    .skill-card {
+        width: 140px; /* Adjust card width for mobile */
+        height: 70px; /* Adjust card height for mobile */
+        padding: 15px; /* Adjust padding for mobile */
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust grid for mobile */
     }
 }
 
 @media (max-width: 480px) {
-    .card-container {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+    /* Further adjust header height for very small screens */
+    header {
+        height: 40vh; /* Reduce height for very small screens */
+        background-size: contain; /* Ensure the GIF fits within the header */
+    }
+
+    .content h1 {
+        font-size: 24px; /* Further reduce font size for very small screens */
+    }
+
+    .content p {
+        font-size: 10px; /* Further reduce font size for very small screens */
+    }
+
+    .skill-card img {
+        width: 25px; /* Even smaller logo size for very small screens */
+        height: 25px; /* Even smaller logo size for very small screens */
+        margin-bottom: 8px; /* Adjust spacing */
+    }
+
+    .skill-card {
+        width: 120px; /* Adjust card width for very small screens */
+        height: 60px; /* Adjust card height for very small screens */
+        padding: 10px; /* Adjust padding for very small screens */
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust grid for very small screens */
     }
 }
