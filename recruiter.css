@@ -271,35 +271,3 @@ header {
         grid-template-columns: 1fr; /* Single column on very small screens */
     }
 }
-
-@media (max-width: 480px) {
-    /* Further adjust header height for very small screens */
-    header {
-        height: 40vh; /* Reduce height for very small screens */
-        background-size: contain; /* Ensure the GIF fits within the header */
-    }
-
-    .content h1 {
-        font-size: 24px; /* Further reduce font size for very small screens */
-    }
-
-    .content p {
-        font-size: 10px; /* Further reduce font size for very small screens */
-    }
-
-    .skill-card img {
-        width: 25px; /* Even smaller logo size for very small screens */
-        height: 25px; /* Even smaller logo size for very small screens */
-        margin-bottom: 8px; /* Adjust spacing */
-    }
-
-    .skill-card {
-        width: 120px; /* Adjust card width for very small screens */
-        height: 60px; /* Adjust card height for very small screens */
-        padding: 10px; /* Adjust padding for very small screens */
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust grid for very small screens */
-    }
-}
