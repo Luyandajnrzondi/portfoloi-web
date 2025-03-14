@@ -202,3 +202,40 @@ nav {
 .skill-card {
     animation: fadeIn 0.5s ease-in-out;
 }
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .skill-card img {
+        width: 30px; /* Smaller logo size for mobile */
+        height: 30px; /* Smaller logo size for mobile */
+        margin-bottom: 10px; /* Adjust spacing */
+    }
+
+    .skill-card {
+        width: 140px; /* Adjust card width for mobile */
+        height: 70px; /* Adjust card height for mobile */
+        padding: 15px; /* Adjust padding for mobile */
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust grid for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-card img {
+        width: 25px; /* Even smaller logo size for very small screens */
+        height: 25px; /* Even smaller logo size for very small screens */
+        margin-bottom: 8px; /* Adjust spacing */
+    }
+
+    .skill-card {
+        width: 120px; /* Adjust card width for very small screens */
+        height: 60px; /* Adjust card height for very small screens */
+        padding: 10px; /* Adjust padding for very small screens */
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust grid for very small screens */
+    }
+}
