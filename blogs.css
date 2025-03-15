@@ -42,15 +42,15 @@ h1 {
 
 /* Enlarged Profile Images */
 .profile img {
-    width: 150PX;  /* Increased size */
-    height: 140px; /* Increased size */
+    width: 150px;  /* Default size */
+    height: 140px; /* Default size */
     border-radius: 12px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 /* Hover Effect */
 .profile:hover img {
-   outline: 2px solid rgb(253, 0, 0);
+    outline: 2px solid rgb(253, 0, 0);
     outline-offset: 3px;
 }
 
@@ -76,8 +76,34 @@ h1 {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
 }
+
 @font-face {
     font-family: 'Netflix Sans';
     src: url('path/to/NetflixSans-Regular.otf') format('opentype');
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Adjust heading size for mobile */
+    h1 {
+        font-size: 2rem;
+    }
+
+    /* Change profiles container to grid layout */
+    .profiles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 20px; /* Reduced gap for smaller screens */
+    }
+
+    /* Reduce avatar size for mobile */
+    .profile img {
+        width: 100px;  /* Smaller size */
+        height: 100px; /* Smaller size */
+    }
+
+    /* Adjust profile name font size */
+    .profile p {
+        font-size: 1rem;
+    }
+}
