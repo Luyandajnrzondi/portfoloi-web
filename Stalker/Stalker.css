@@ -18,13 +18,19 @@ nav {
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: background 0.6s ease-in-out; 
+    transition: background 0.6s ease-in-out;
 }
-
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
+}
+/* Logo Styling */
+#logo {
+    height: 25px; /* Adjust height as needed */
+    display: block;
+    margin-left: -20px; /* Adjust as needed */
 }
 
 .banner-description {
@@ -58,7 +64,7 @@ nav {
 /* Hero Section with GIF Background */
 header {
     height: 75vh;
-    background: url('/BackEnd/public/images/stalker.webp') no-repeat center center/cover;
+    background: url('images/dwight.gif') no-repeat center center/cover;
     display: flex;
     align-items: flex-end; /* Move content to bottom */
     justify-content: flex-start; /* Move content to left */
@@ -68,9 +74,9 @@ header {
 }
 
 /* Fallback background (if GIF fails to load) */
-@supports not (background-image: url('/BackEnd/public/images/stalker.webp')) {
+@supports not (background-image: url('images/dwight.gif')) {
     header {
-        background: url('/BackEnd/public/fallback-image.jpg') no-repeat center center/cover;
+        background: url('fallback-image.jpg') no-repeat center center/cover;
     }
 }
 
@@ -130,19 +136,16 @@ header {
 
 /* Card container styling */
 .card-container {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
-    overflow-x: auto;
     padding: 10px;
 }
 
 /* Card styling */
 .card {
-    background: rgb(253, 253, 253);
-    padding: 0;
-    width: 250px;
+    background-size: cover;
+    background-position: center;
     height: 160px;
     text-align: center;
     border-radius: 8px;
@@ -150,33 +153,19 @@ header {
     font-size: 15px;
     color: #ffffff;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
     filter: brightness(100%);
-    animation: popUp 0.5s ease forwards, bounce 2s infinite 1.5s;
-}
-
-/* Image styling */
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    filter: brightness(50%);
-    animation: popUp 0.5s ease forwards, bounce 2s infinite 1.5s;
+    transition: transform 0.3s ease;
 }
 
 /* Adjust brightness on hover */
 .card:hover {
     outline: 3px solid rgb(253, 0, 0);
     outline-offset: 1px;
-}
-
-.card:hover .card img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Banner Buttons */
@@ -191,7 +180,7 @@ header {
     display: inline-flex;
     align-items: center;
     padding: 10px 20px;
-    background-color: #ffffff; 
+    background-color: #ffffff;
     color: #fff;
     font-weight: bold;
     border: none;
@@ -239,4 +228,44 @@ header {
 .more-info-button .label {
     font-size: 1rem;
     color: white;
+}
+
+.avatar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
 }
