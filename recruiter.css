@@ -65,20 +65,26 @@ nav {
 /* Hero Section with GIF Background */
 /* Hero Section with GIF Background */
 /* Hero Section with GIF Background */
+
 header {
-    height: 95vh;
-    background: url('images/dwight-ezgif.com-effects.gif') no-repeat right 85% center/cover; /* Move GIF further to the right */
+    height: 75vh;
+    background: url('images/dwight.gif') no-repeat center center/cover;
     display: flex;
-    min-width: 100vh;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: flex-end; /* Move content to bottom */
+    justify-content: flex-start; /* Move content to left */
+
     text-align: left;
     position: relative;
-    padding: 20px;
-    overflow: hidden;
+    padding: 20px; /* Adjust padding for positioning */
+
 }
 
-
+/* Fallback background (if GIF fails to load) */
+@supports not (background-image: url('images/dwight.gif')) {
+    header {
+        background: url('fallback-image.jpg') no-repeat center center/cover;
+    }
+}
 /* Darker and Smoother Gradient Overlay */
 header::before {
     content: '';
@@ -92,7 +98,7 @@ header::before {
 }
 /* Positioning text + buttons to bottom-left */
 .content {
-    max-width: 580px;
+    max-width: 750px;
     padding: 20px;
     position: relative; /* Ensure content is above the gradient */
     z-index: 1; /* Bring content above the gradient */
