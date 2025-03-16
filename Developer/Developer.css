@@ -64,7 +64,7 @@ nav {
 /* Hero Section with GIF Background */
 header {
     height: 75vh;
-    background: url('../images/developer.gif') no-repeat center center/cover;
+    background: url('../images/hacker.webp') no-repeat center center/cover;
     display: flex;
     align-items: flex-end; /* Move content to bottom */
     justify-content: flex-start; /* Move content to left */
@@ -74,7 +74,7 @@ header {
 }
 
 /* Fallback background (if GIF fails to load) */
-@supports not (background-image: url('../images/developer.gif')) {
+@supports not (background-image: url('../images/hacker.webp')) {
     header {
         background: url('../images/fallback-image.jpg') no-repeat center center/cover;
     }
